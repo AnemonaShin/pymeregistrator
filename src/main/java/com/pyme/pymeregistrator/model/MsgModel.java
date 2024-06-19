@@ -1,5 +1,6 @@
 package com.pyme.pymeregistrator.model;
 
+import io.micrometer.common.lang.NonNullFields;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,6 +12,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@NonNullFields
 public class MsgModel {
     
     private String code;

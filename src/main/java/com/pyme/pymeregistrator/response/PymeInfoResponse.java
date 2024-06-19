@@ -1,5 +1,8 @@
 package com.pyme.pymeregistrator.response;
 
+import com.pyme.pymeregistrator.model.MsgModel;
+
+import io.micrometer.common.lang.NonNullFields;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,9 +10,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PymeInfoResponse {
+@NonNullFields
+public class PymeInfoResponse extends MsgModel{
     
-    String pymeCode;
+    String id;
     String descripcion;
     String nombre;
     String rubro;

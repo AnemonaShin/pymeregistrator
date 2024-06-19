@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class AddPymeRequest {
     
-    String pymeCode;
+    String id;
     String descripcion;
     String nombre;
     String rubro;
