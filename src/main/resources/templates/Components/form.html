@@ -1,38 +1,84 @@
 <section th:fragment="form">
-    <div class="container">
-        <form>
-            <div class="form-group">
+    <div class="container p-5">
+        <h1>Registro pymes</h1>
+<!-- 
+    Conectar form con el controller par agregar a la BD
+         -->
+        <form method="get"  onsubmit="return Validar()">
+            <div class="form-group  m-2">
                 <label for="ID_nom">Nombre</label>
-                <input type="text" class="form-control" id="ID_nom" placeholder="Nombre pyme">
+                <input type="text" class="form-control" id="ID_nom"     name="Nom_nom" placeholder="Nombre pyme" required>
             </div>
-            <div class="form-group">
+            <div class="form-group  m-2">
                 <label for="ID_Pyme">Codigo pyme</label>
-                <input type="text" class="form-control" id="ID_Pyme" placeholder="Codigo pyme">
+                <input type="text" class="form-control" id="ID_Pyme"    name="Nom_Pyme" placeholder="Codigo pyme"  required>
             </div>
-            <div class="form-group">
+            <div class="form-group  m-2">
                 <label for="ID_Email">Email</label>
-                <input type="email" class="form-control" id="ID_Email" placeholder="Email">
+                <input type="email" class="form-control" id="ID_Email"  name="Nom_Email" placeholder="Email"    required >
             </div>
-            <div class="form-group">
-                <label for="ID_FONO">FONO</label>
-                <input type="text" class="form-control" id="ID_FONO" placeholder="Telefono">
+            <div class="form-group  m-2">
+                <label for="ID_FONO">Telefono</label>
+                <input type="tel" class="form-control" id="ID_FONO"    name="Nom_FONO" placeholder="Telefono" required>
             </div>
-            <div class="form-group">
+            <div class="form-group  m-2">
                 <label for="ID_Rubro">Rubro</label>
-                <input type="text" class="form-control" id="ID_Rubro" placeholder="Rubro">
+                <input type="text" class="form-control" id="ID_Rubro"   name="Nom_Rubro" placeholder="Rubro" required>
             </div>
-            <div class="form-group">
+            <div class="form-group m-2" >
                 <label for="ID_Comuna">Comuna</label>
-                <input type="text" class="form-control" id="ID_Comuna" placeholder="Comuna">
+                <input type="text" class="form-control" id="ID_Comuna"  name="Nom_Comuna" placeholder="Comuna" required>
             </div>
-            <div class="form-group">
+            <div class="form-group  m-2">
                 <label for="ID_Desp">Descripción</label>
-                <input type="text" class="form-control" id="ID_Desp" placeholder="Descripción">
+                <input type="text" class="form-control" id="ID_Desc"    name="Nom_Desc" placeholder="Descripción">
             </div>
             <br>
-            <button type="submit" class="btn btn-primary">Enviar</button>
+            <button type="submit"  class="btn btn-primary">Enviar</button>
         </form>
     </div>
     
- 
+ <script>
+     function Validar(){
+         const nom=      document.getElementById("ID_nom").value;
+         const Pyme=     document.getElementById("ID_Pyme").value;
+         const Email=    document.getElementById("ID_Email").value;
+         const Telefono= document.getElementById("ID_FONO").value;
+         const Rubro=    document.getElementById("ID_Rubro").value;
+         const Comuna=   document.getElementById("ID_Comuna").value;
+         const Error=[];
+        
+         if (nom.trim() === "") {
+                Error.push("Nombre");
+            }
+            if (Pyme.trim() === "") {
+                Error.push("Codigo pyme");
+            }
+            if (Email.trim() === "") {
+                Error.push("Email");
+            }
+            if (Telefono.trim() === "") {
+                Error.push("Telefono");
+            }
+            if (Rubro.trim() === "") {
+                Error.push("Rubro");
+            }
+            if (Comuna.trim() === "") {
+                Error.push("Comuna");
+            }
+        if (Error.length > 0) {
+            alert("Faltan los siguientes campos: \n"+Error.join(", "));
+            return false
+        } 
+            nom.value="";
+            Pyme.value = "";
+            Email.value = "";
+            Telefono.value = "";
+            Rubro.value = "";
+            Comuna.value = "";
+            Desc.value = "";
+        return true
+    }
+
+ </script>
 </section>

@@ -10,15 +10,24 @@
     <td>Descripción</td>
     <td>Eliminar</td>
     </tr>
-    <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
+
+    <!-- 
+        Modificar variables para ajustarse al controller
+
+        •la ultima columna esta destinada al boton eliminar, para eliminar esa pyme
+
+     -->
+
+    <tr th:each="pyme:${pymes}">
+        <td th:text="${id}"></td>
+        <td th:text="${nombre}"></td>
+        <td th:text="${rubro}"></td>
+        <td th:text="${email}"></td>
+        <td th:text="${fono}"></td>
+        <td th:text="${coomunaDelivery}"></td>
+        <td th:text="${descripcion}"></td>
+        <button type="button" class="btn btn-danger">Eliminar</button>
     </tr>
+
     </tbody>
     </table>
