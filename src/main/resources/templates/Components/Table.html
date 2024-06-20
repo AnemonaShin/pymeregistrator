@@ -1,4 +1,5 @@
-<table th:action="@{/pyme/registrator/list}" th:object="${PymeInfoResponse}" method="GET" th:fragment="Table"  class="table">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<table th:fragment="Table"  class="table">
     <tbody>
         <tr>
             <td>Nombre</td>
@@ -8,7 +9,6 @@
             <td>Rubro</td>
             <td>Comuna</td>
             <td>Descripción</td>
-            <td>Eliminar</td>
         </tr>
 
     <!-- 
@@ -18,15 +18,14 @@
 
      -->
 
-    <tr>
-        <td th:text="${id}"></td>
-        <td th:text="${nombre}"></td>
-        <td th:text="${rubro}"></td>
-        <td th:text="${email}"></td>
-        <td th:text="${fono}"></td>
-        <td th:text="${coomunaDelivery}"></td>
-        <td th:text="${descripcion}"></td>
-        <button type="button" class="btn btn-danger">Eliminar</button>
+    <tr th:each="pymeList:${pyme}">
+        <td th:text="${pymeList.id}"></td>
+        <td th:text="${pymeList.nombre}"></td>
+        <td th:text="${pymeList.rubro}"></td>
+        <td th:text="${pymeList.email}"></td>
+        <td th:text="${pymeList.fono}"></td>
+        <td th:text="${pymeList.comunaDelivery}"></td>
+        <td th:text="${pymeList.descripcion}"></td>
     </tr>
 
     </tbody>

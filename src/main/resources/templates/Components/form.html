@@ -4,7 +4,7 @@
 <!-- 
     Conectar form con el controller par agregar a la BD
          -->
-        <form th:action="@{/pyme/registrator/add}" method="POST" th:object="${AddPymeRequest}" onsubmit="return Validar()">
+        <form th:action="@{/pyme/add}" method="POST" th:object="${AddPymeRequest}" onsubmit="return Validar()">
             <div class="form-group  m-2">
                 <label for="ID_nom">Nombre</label>
                 <input type="text" class="form-control" id="ID_nom"  th:name="nombre"  name="Nom_nom" placeholder="Nombre pyme" required>
