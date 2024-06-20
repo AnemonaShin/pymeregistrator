@@ -4,34 +4,34 @@
 <!-- 
     Conectar form con el controller par agregar a la BD
          -->
-        <form method="get"  onsubmit="return Validar()">
+        <form th:action="@{/pyme/registrator/add}" method="POST" th:object="${AddPymeRequest}" onsubmit="return Validar()">
             <div class="form-group  m-2">
                 <label for="ID_nom">Nombre</label>
-                <input type="text" class="form-control" id="ID_nom"     name="Nom_nom" placeholder="Nombre pyme" required>
+                <input type="text" class="form-control" id="ID_nom"  th:name="nombre"  name="Nom_nom" placeholder="Nombre pyme" required>
             </div>
             <div class="form-group  m-2">
                 <label for="ID_Pyme">Codigo pyme</label>
-                <input type="text" class="form-control" id="ID_Pyme"    name="Nom_Pyme" placeholder="Codigo pyme"  required>
+                <input type="text" class="form-control" id="ID_Pyme" th:name="id" name="Nom_Pyme" placeholder="Codigo pyme"  required>
             </div>
             <div class="form-group  m-2">
                 <label for="ID_Email">Email</label>
-                <input type="email" class="form-control" id="ID_Email"  name="Nom_Email" placeholder="Email"    required >
+                <input type="email" class="form-control" id="ID_Email" th:name="email" name="Nom_Email" placeholder="Email"    required >
             </div>
             <div class="form-group  m-2">
                 <label for="ID_FONO">Telefono</label>
-                <input type="tel" class="form-control" id="ID_FONO"    name="Nom_FONO" placeholder="Telefono" required>
+                <input type="tel" class="form-control" id="ID_FONO" th:name="fono"  name="Nom_FONO" placeholder="Telefono" required>
             </div>
             <div class="form-group  m-2">
                 <label for="ID_Rubro">Rubro</label>
-                <input type="text" class="form-control" id="ID_Rubro"   name="Nom_Rubro" placeholder="Rubro" required>
+                <input type="text" class="form-control" id="ID_Rubro" th:name="rubro" name="Nom_Rubro" placeholder="Rubro" required>
             </div>
             <div class="form-group m-2" >
                 <label for="ID_Comuna">Comuna</label>
-                <input type="text" class="form-control" id="ID_Comuna"  name="Nom_Comuna" placeholder="Comuna" required>
+                <input type="text" class="form-control" id="ID_Comuna" th:name="comunaDelivery" name="Nom_Comuna" placeholder="Comuna" required>
             </div>
             <div class="form-group  m-2">
                 <label for="ID_Desp">Descripción</label>
-                <input type="text" class="form-control" id="ID_Desc"    name="Nom_Desc" placeholder="Descripción">
+                <input type="text" class="form-control" id="ID_Desc"  th:name="descripcion" name="Nom_Desc" placeholder="Descripción">
             </div>
             <br>
             <button type="submit"  class="btn btn-primary">Enviar</button>

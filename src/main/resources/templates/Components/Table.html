@@ -1,15 +1,15 @@
-<table th:fragment="Table"  class="table">
+<table th:action="@{/pyme/registrator/list}" th:object="${PymeInfoResponse}" method="GET" th:fragment="Table"  class="table">
     <tbody>
-    <tr>
-    <td>Nombre</td>
-    <td>Codigo pyme</td>
-    <td>Email</td>
-    <td>Telefono</td>
-    <td>Rubro</td>
-    <td>Comuna</td>
-    <td>Descripción</td>
-    <td>Eliminar</td>
-    </tr>
+        <tr>
+            <td>Nombre</td>
+            <td>Codigo pyme</td>
+            <td>Email</td>
+            <td>Telefono</td>
+            <td>Rubro</td>
+            <td>Comuna</td>
+            <td>Descripción</td>
+            <td>Eliminar</td>
+        </tr>
 
     <!-- 
         Modificar variables para ajustarse al controller
@@ -18,7 +18,7 @@
 
      -->
 
-    <tr th:each="pyme:${pymes}">
+    <tr>
         <td th:text="${id}"></td>
         <td th:text="${nombre}"></td>
         <td th:text="${rubro}"></td>
@@ -30,4 +30,4 @@
     </tr>
 
     </tbody>
-    </table>
+</table>
