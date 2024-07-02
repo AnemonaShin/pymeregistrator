@@ -1,24 +1,21 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <table th:fragment="Table"  class="table">
-    <tbody>
+    <tr>
         <tr>
-            <td>Nombre</td>
             <td>Codigo pyme</td>
+            <td>Nombre</td>
+            <td>Rubro</td>
             <td>Email</td>
             <td>Telefono</td>
-            <td>Rubro</td>
             <td>Comuna</td>
             <td>Descripción</td>
+            <td>Editar</td>
+            <td>Eliminar</td>
         </tr>
 
-    <!-- 
-        Modificar variables para ajustarse al controller
+  
 
-        •la ultima columna esta destinada al boton eliminar, para eliminar esa pyme
-
-     -->
-
-    <tr th:each="pymeList:${pyme}">
+    <tr th:each="pymeList, iStat:${pyme}">
         <td th:text="${pymeList.id}"></td>
         <td th:text="${pymeList.nombre}"></td>
         <td th:text="${pymeList.rubro}"></td>
@@ -26,7 +23,72 @@
         <td th:text="${pymeList.fono}"></td>
         <td th:text="${pymeList.comunaDelivery}"></td>
         <td th:text="${pymeList.descripcion}"></td>
-    </tr>
+        <td><button type="button" class="btn btn-warning"
+            data-bs-toggle="offcanvas" 
+            th:href="'#EditarForm'+${iStat.index}" 
+            role="button" 
+            th:attr="aria-controls='EditarForm'+${iStat.index}"
+            ><i class="fa-solid fa-pen-to-square"></i></button></td>
+        <td><button type="button" class="btn btn-danger"
+            
+            data-bs-toggle="offcanvas" 
+            th:href="'#EliminarForm'+${iStat.index}"
+            th:attr="aria-controls='EliminarForm'+${iStat.index}"
+            ><i class="fa-solid fa-trash"></i></button></td>
+    
+    <div class="offcanvas offcanvas-start" tabindex="-1" th:id="'EditarForm'+${iStat.index}" aria-labelledby="offcanvasExampleLabel" >
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Editar</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <form th:action="@{/pyme/}" method="POST" th:object="${AddPymeRequest}" >
+                <div class="form-group  m-2">
+                    <label for="ID_nom">Nombre</label>
+                    <input type="text" class="form-control" id="ID_nom"  th:name="nombre"  name="Nom_nom" placeholder="Nombre pyme" th:value="${pymeList.nombre}" required>
+                </div>
+                <div class="form-group  m-2">
+                    <label for="ID_Pyme">Codigo pyme</label>
+                    <input type="text" class="form-control" id="ID_Pyme" th:name="id" name="Nom_Pyme" placeholder="Codigo pyme" th:value="${pymeList.id}" required>
+                </div>
+                <div class="form-group  m-2">
+                    <label for="ID_Email">Email</label>
+                    <input type="email" class="form-control" id="ID_Email" th:name="email" name="Nom_Email" placeholder="Email"  th:value="${pymeList.email}"  required >
+                </div>
+                <div class="form-group  m-2">
+                    <label for="ID_FONO">Telefono</label>
+                    <input type="tel" class="form-control" id="ID_FONO" th:name="fono"  name="Nom_FONO" placeholder="Telefono" th:value="${pymeList.fono}" required>
+                </div>
+                <div class="form-group  m-2">
+                    <label for="ID_Rubro">Rubro</label>
+                    <input type="text" class="form-control" id="ID_Rubro" th:name="rubro" name="Nom_Rubro" placeholder="Rubro" th:value="${pymeList.rubro}" required>
+                </div>
+                <div class="form-group m-2" >
+                    <label for="ID_Comuna">Comuna</label>
+                    <input type="text" class="form-control" id="ID_Comuna" th:name="comunaDelivery" name="Nom_Comuna" placeholder="Comuna" th:value="${pymeList.comunaDelivery}" required>
+                </div>
+                <div class="form-group  m-2">
+                    <label for="ID_Desp">Descripción</label>
+                    <input type="text" class="form-control" id="ID_Desc"  th:name="descripcion" name="Nom_Desc" placeholder="Descripción" th:value="${pymeList.descripcion}">
+                </div>
+                <br>
+                <button type="submit"  class="btn btn-primary">Editar</button>
+            </form>
+        </div>
+    </div>
+    <div class="offcanvas offcanvas-start" tabindex="-1" th:id="'EliminarForm'+${iStat.index}" aria-labelledby="offcanvasExampleLabel" >
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Eliminar</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
 
+            <h3 th:text="'¿Está seguro de querer eliminar '+${pymeList.nombre}+' ?'"></h3>
+            <br>
+            <button   class="btn btn-danger">Eliminar</button>
+        </div>
+    </div>
+    
+</tr>
     </tbody>
 </table>
