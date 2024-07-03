@@ -1,14 +1,10 @@
 <section th:fragment="form">
     <div class="container p-5">
         <h1>Registro pymes</h1>
-        <form th:action="@{/pyme/add}" method="POST" th:object="${AddPymeRequest}" onsubmit="return Validar()">
+        <form th:action="@{/add}" method="POST" th:object="${AddPymeRequest}" onsubmit="return Validar()">
             <div class="form-group  m-2">
                 <label for="ID_nom">Nombre</label>
                 <input type="text" class="form-control" id="ID_nom"  th:name="nombre"  name="Nom_nom" placeholder="Nombre pyme" required>
-            </div>
-            <div class="form-group  m-2">
-                <label for="ID_Pyme">Codigo pyme</label>
-                <input type="text" class="form-control" id="ID_Pyme" th:name="id" name="Nom_Pyme" placeholder="Codigo pyme"  required>
             </div>
             <div class="form-group  m-2">
                 <label for="ID_Email">Email</label>
@@ -38,7 +34,6 @@
  <script>
      function Validar(){
          const nom=      document.getElementById("ID_nom").value;
-         const Pyme=     document.getElementById("ID_Pyme").value;
          const Email=    document.getElementById("ID_Email").value;
          const Telefono= document.getElementById("ID_FONO").value;
          const Rubro=    document.getElementById("ID_Rubro").value;
@@ -47,9 +42,6 @@
         
          if (nom.trim() === "") {
                 Error.push("Nombre");
-            }
-            if (Pyme.trim() === "") {
-                Error.push("Codigo pyme");
             }
             if (Email.trim() === "") {
                 Error.push("Email");
@@ -68,7 +60,6 @@
             return false
         } 
             nom.value="";
-            Pyme.value = "";
             Email.value = "";
             Telefono.value = "";
             Rubro.value = "";
