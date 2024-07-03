@@ -1,9 +1,6 @@
 <section th:fragment="form">
     <div class="container p-5">
         <h1>Registro pymes</h1>
-<!-- 
-    Conectar form con el controller par agregar a la BD
-         -->
         <form th:action="@{/pyme/add}" method="POST" th:object="${AddPymeRequest}" onsubmit="return Validar()">
             <div class="form-group  m-2">
                 <label for="ID_nom">Nombre</label>
