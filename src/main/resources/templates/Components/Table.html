@@ -44,12 +44,12 @@
         <div class="offcanvas-body">
             <form th:action="@{/edit}" method="POST" th:object="${AddPymeRequest}" >
                 <div class="form-group  m-2">
-                    <label for="ID_nom">Nombre</label>
-                    <input type="text" class="form-control" id="ID_nom"  th:name="nombre"  name="Nom_nom" placeholder="Nombre pyme" th:value="${pymeList.nombre}" required>
+                    <label for="ID_Pyme">Codigo pyme</label>
+                    <input type="text" class="form-control bg-light" id="ID_Pyme" th:name="id" name="Nom_Pyme" placeholder="Codigo pyme" th:value="${pymeList.id}" readonly>
                 </div>
                 <div class="form-group  m-2">
-                    <label for="ID_Pyme">Codigo pyme</label>
-                    <input type="text" class="form-control" id="ID_Pyme" th:name="id" name="Nom_Pyme" placeholder="Codigo pyme" th:value="${pymeList.id}">
+                    <label for="ID_nom">Nombre</label>
+                    <input type="text" class="form-control" id="ID_nom"  th:name="nombre"  name="Nom_nom" placeholder="Nombre pyme" th:value="${pymeList.nombre}" required>
                 </div>
                 <div class="form-group  m-2">
                     <label for="ID_Email">Email</label>
