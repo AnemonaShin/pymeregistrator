@@ -23,10 +23,9 @@ public class PymeController {
 
         service.addToBd(body);
 
-        //Para envio de data a Servicio.
         model.addAttribute("pyme", service.SearchInBd());
 
-        return "index";
+        return "redirect:/";
     }
 
     @PostMapping("/edit")
@@ -34,10 +33,9 @@ public class PymeController {
 
         service.editInBd(body.getId(), body);
 
-        //Para envio de data a Servicio.
         model.addAttribute("pyme", service.SearchInBd());
 
-        return "index";
+        return "redirect:/";
     }
 
     
@@ -46,9 +44,8 @@ public class PymeController {
 
         service.deleteInBdById(id);
 
-        //Para envio de data a Servicio.
         model.addAttribute("pyme", service.SearchInBd());
 
-        return "index";
+        return "redirect:/";
     }
 }
