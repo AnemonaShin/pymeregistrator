@@ -2,6 +2,7 @@ package com.pyme.pymeregistrator.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,7 +39,7 @@ public class APIPymeController {
         return service.editInBd(id, body);
     }
     
-    @PatchMapping("/delete")
+    @DeleteMapping("/delete")
     public ResponseEntity<MessageModel> deletePyme(@RequestParam Long id) throws Exception{
         return service.deleteInBdById(id);
     }
