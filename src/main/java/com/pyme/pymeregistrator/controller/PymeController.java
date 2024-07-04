@@ -12,6 +12,7 @@ import com.pyme.pymeregistrator.request.AddPymeRequest;
 import com.pyme.pymeregistrator.service.PymeService;
 
 
+
 @Controller
 public class PymeController {
  
@@ -23,8 +24,6 @@ public class PymeController {
 
         service.addToBd(body);
 
-        model.addAttribute("pyme", service.SearchInBd());
-
         return "redirect:/";
     }
 
@@ -32,8 +31,6 @@ public class PymeController {
     public String editPyme(@ModelAttribute AddPymeRequest body, Model model) throws Exception{
 
         service.editInBd(body.getId(), body);
-
-        model.addAttribute("pyme", service.SearchInBd());
 
         return "redirect:/";
     }
@@ -44,8 +41,15 @@ public class PymeController {
 
         service.deleteInBdById(id);
 
-        model.addAttribute("pyme", service.SearchInBd());
-
         return "redirect:/";
     }
+
+    @GetMapping("/list/{rubro}")
+    public String getMethodName(@PathVariable String rubro, Model model) {
+        
+        model.addAttribute("pyme", service.searchByRubroInBD(rubro));
+        
+        return "index";
+    }
+    
 }

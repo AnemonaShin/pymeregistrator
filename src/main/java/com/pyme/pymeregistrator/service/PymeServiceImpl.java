@@ -70,7 +70,11 @@ public class PymeServiceImpl implements PymeService{
         }
     }
 
-    public Iterable<AddPymeRequest> SearchInBd() {
+    public Iterable<AddPymeRequest> searchInBd() {
         return bdRepo.findAll();
+    }
+
+    public Iterable<AddPymeRequest> searchByRubroInBD(String rubro) {
+        return bdRepo.findByRubro(rubro);
     }
 }
