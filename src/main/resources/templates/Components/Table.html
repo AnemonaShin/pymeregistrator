@@ -42,14 +42,14 @@
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-            <form th:action="@{/pyme/}" method="POST" th:object="${AddPymeRequest}" >
+            <form th:action="@{/edit}" method="POST" th:object="${AddPymeRequest}" >
                 <div class="form-group  m-2">
                     <label for="ID_nom">Nombre</label>
                     <input type="text" class="form-control" id="ID_nom"  th:name="nombre"  name="Nom_nom" placeholder="Nombre pyme" th:value="${pymeList.nombre}" required>
                 </div>
                 <div class="form-group  m-2">
                     <label for="ID_Pyme">Codigo pyme</label>
-                    <input type="text" class="form-control" id="ID_Pyme" th:name="id" name="Nom_Pyme" placeholder="Codigo pyme" th:value="${pymeList.id}" required>
+                    <input type="text" class="form-control" id="ID_Pyme" th:name="id" name="Nom_Pyme" placeholder="Codigo pyme" th:value="${pymeList.id}">
                 </div>
                 <div class="form-group  m-2">
                     <label for="ID_Email">Email</label>
@@ -83,9 +83,9 @@
         </div>
         <div class="offcanvas-body">
 
-            <h3 th:text="'¿Está seguro de querer eliminar '+${pymeList.nombre}+' ?'"></h3>
+            <h3 th:text="'¿Está seguro de querer eliminar la Pyme: '+${pymeList.nombre}+' ?'"></h3>
             <br>
-            <button   class="btn btn-danger">Eliminar</button>
+            <a class="btn btn-danger" th:href="@{/delete/{id}(id=${pymeList.id})}">Eliminar</a>
         </div>
     </div>
     
