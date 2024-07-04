@@ -63,7 +63,7 @@ public class PymeServiceImpl implements PymeService{
             } else {
                 bdRepo.deleteById(id);
 
-                return new ResponseEntity<MessageModel>(new MessageModel("0","Pyme eliminada correctamente."), HttpStatus.OK);
+                return new ResponseEntity<MessageModel>(new MessageModel("00","Pyme eliminada correctamente."), HttpStatus.OK);
             }
         } catch(Exception e){
             throw new Exception(e.getMessage());
