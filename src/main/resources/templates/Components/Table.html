@@ -49,7 +49,7 @@
                 </div>
                 <div class="form-group  m-2">
                     <label for="ID_nom">Nombre</label>
-                    <input type="text" class="form-control" id="ID_nom"  th:name="nombre"  name="Nom_nom" placeholder="Nombre pyme" th:value="${pymeList.nombre}" required>
+                    <input type="text" class="form-control" id="ID_nom"  th:name="nombre"  name="Nom_nom" placeholder="Nombre pyme" th:value="${pymeList.nombre}" readonly>
                 </div>
                 <div class="form-group  m-2">
                     <label for="ID_Email">Email</label>
@@ -61,15 +61,15 @@
                 </div>
                 <div class="form-group  m-2">
                     <label for="ID_Rubro">Rubro</label>
-                    <input type="text" class="form-control" id="ID_Rubro" th:name="rubro" name="Nom_Rubro" placeholder="Rubro" th:value="${pymeList.rubro}" required>
+                    <input type="text" class="form-control" id="ID_Rubro" th:name="rubro" name="Nom_Rubro" placeholder="Rubro" th:value="${pymeList.rubro}" readonly>
                 </div>
                 <div class="form-group m-2" >
                     <label for="ID_Comuna">Comuna</label>
-                    <input type="text" class="form-control" id="ID_Comuna" th:name="comunaDelivery" name="Nom_Comuna" placeholder="Comuna" th:value="${pymeList.comunaDelivery}" required>
+                    <input type="text" class="form-control" id="ID_Comuna" th:name="comunaDelivery" name="Nom_Comuna" placeholder="Comuna" th:value="${pymeList.comunaDelivery}" readonly>
                 </div>
                 <div class="form-group  m-2">
                     <label for="ID_Desp">Descripción</label>
-                    <input type="text" class="form-control" id="ID_Desc"  th:name="descripcion" name="Nom_Desc" placeholder="Descripción" th:value="${pymeList.descripcion}">
+                    <input type="text" class="form-control" id="ID_Desc"  th:name="descripcion" name="Nom_Desc" placeholder="Descripción" th:value="${pymeList.descripcion}" readonly>
                 </div>
                 <br>
                 <button type="submit"  class="btn btn-primary">Editar</button>
