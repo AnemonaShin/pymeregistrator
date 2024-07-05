@@ -17,5 +17,7 @@ public interface PymeService {
 
     public ResponseEntity<MessageModel> deleteInBdById (Long id) throws Exception;
 
-    public Iterable<AddPymeRequest> SearchInBd ();
+    public Iterable<AddPymeRequest> searchInBd ();
+
+    public Iterable<AddPymeRequest> searchByRubroInBD(String rubro);
 }

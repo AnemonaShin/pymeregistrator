@@ -32,7 +32,12 @@ public class APIPymeController {
 
     @GetMapping("/list")
     public Iterable<AddPymeRequest> getPymeMethod() {
-        return service.SearchInBd();
+        return service.searchInBd();
+    }
+
+    @GetMapping("/list/{rubro}")
+    public Iterable<AddPymeRequest> getPymeByRubroMethod(@PathVariable String rubro) {
+        return service.searchByRubroInBD(rubro);
     }
 
     @PatchMapping("/edit")

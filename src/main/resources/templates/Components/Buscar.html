@@ -1,16 +1,16 @@
 <div th:fragment="buscar">
     <div class="row-2 ">
                     
-        <form class="form-inline ">
+        <form th:action="@{/list/}"   class="form-inline ">
 
             <label >Buscar Rubro</label>
-                <div class="input-group col-7">
-                    <input type="text" class="form-control" id="BuscarRubro"  placeholder="Buscar rubro">
+                <div class="input-group ">
+                    <input type="text" class="form-control" id="BuscarRubro"  placeholder="Buscar rubro" th:name="rubro">
                     <button type="submit" class="btn btn-primary  ">Buscar <i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
                 
             </form>
         <br>
-        <button class="btn btn-secondary">Quitar filtros</button>
+        <a class="btn btn-secondary" >Quitar filtros</a>
     </div>
 </div>

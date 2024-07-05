@@ -22,7 +22,7 @@ public class RouterController {
     @GetMapping({"/","/index","/home"})
 	public String index(Model model) {
 		
-        model.addAttribute("pyme", service.SearchInBd());
+        model.addAttribute("pyme", service.searchInBd());
 
 		return "index";
 	}
