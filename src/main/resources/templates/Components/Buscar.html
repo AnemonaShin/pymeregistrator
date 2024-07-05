@@ -1,7 +1,7 @@
 <div th:fragment="buscar">
     <div class="row-2 ">
                     
-        <form th:action="@{/list/}"   class="form-inline ">
+        <form th:action="@{/list}" class="form-inline " method="POST">
 
             <label >Buscar Rubro</label>
                 <div class="input-group ">
@@ -11,6 +11,6 @@
                 
             </form>
         <br>
-        <a class="btn btn-secondary" >Quitar filtros</a>
+        <a class="btn btn-secondary" th:href="@{/}">Quitar filtros</a>
     </div>
 </div>

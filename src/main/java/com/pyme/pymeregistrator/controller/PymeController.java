@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.pyme.pymeregistrator.request.AddPymeRequest;
 import com.pyme.pymeregistrator.service.PymeService;
@@ -44,8 +45,8 @@ public class PymeController {
         return "redirect:/";
     }
 
-    @GetMapping("/list/{rubro}")
-    public String getMethodName(@PathVariable String rubro, Model model) {
+    @PostMapping("/list")
+    public String getMethodName(@RequestParam String rubro, Model model) {
         
         model.addAttribute("pyme", service.searchByRubroInBD(rubro));
         
